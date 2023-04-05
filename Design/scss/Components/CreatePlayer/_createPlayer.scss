@@ -1,0 +1,18 @@
+.createPlayer {
+    &_name {
+        margin-top: 20px;
+        &_input {
+            padding: 10px;
+        }
+    }
+    &_btn {
+        margin-top: 20px;
+        padding:5px 10px;
+        background-color: $btnBGColor;
+        color: $btnColor;
+        border-radius: 5px;
+    }
+    &_errormsg {
+        color: $errorColor;
+    }
+}

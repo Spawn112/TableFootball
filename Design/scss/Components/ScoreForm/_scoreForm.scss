@@ -1,0 +1,38 @@
+.scoreForm {
+    &_title {
+        text-align: center;
+    }
+    &_team {
+        display: grid;
+        border: solid 1px;
+        border-radius: 5px;
+        padding: 10px;
+        &_score {
+            text-align: center;
+            margin:10px;
+            padding:5px 10px;
+        }
+        &_player {
+            margin:10px;
+            padding:5px 10px;
+        }
+    }
+    &_btn {
+        margin-top: 20px;
+        padding:5px 10px;
+        background-color: $btnBGColor;
+        color: $btnColor;
+        border-radius: 5px;
+        width: 100%;
+    }
+    &_errormsg {
+        color: $errorColor;
+    }
+    &_warningmsg {
+        color: $warningColor;
+    }
+    &_warningmsg, &_errormsg {
+        text-align: center;
+        margin: 10px;
+    }
+}

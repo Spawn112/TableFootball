@@ -1,0 +1,32 @@
+﻿@using TableFootball.Website.Models.Components.Scoreboard
+
+@model ScoreboardModel
+
+@{ 
+    var isEvenEntry = true;
+}
+
+<div class="scoreBoard">
+    <h1 class="scoreBoard_title">@Model.Title</h1>
+    <h3 class="scoreBoard_header">@Model.Header</h3>
+    <table class="scoreBoard_list">
+        <tr class="scoreBoard_list_header">
+            <th class="col-sm-2">@Model.HeaderPosition</th>
+            <th class="col-sm-2">@Model.HeaderName</th>
+            <th class="col-sm-2">@Model.HeaderWinrate</th>
+            <th class="col-sm-4"></th>
+            <th class="col-sm-2">@Model.HeaderScore</th>
+        </tr>
+        @foreach (var entry in Model.Entries)
+        {
+            isEvenEntry = !isEvenEntry;
+            <tr class="scoreBoard_list_item @(isEvenEntry ? "even" : "")">
+                <td class="scoreBoard_list_item_left col-sm-2">@(entry.Position.HasValue ? entry.Position.Value.ToString() : "-")</td>
+                <td class="scoreBoard_list_item_left col-sm-2">@entry.PlayerName</td>
+                <td class="scoreBoard_list_item_left col-sm-2">@entry.Winrate %</td>
+                <td class="scoreBoard_list_item_center col-sm-4"></td>
+                <td class="scoreBoard_list_item_right col-sm-2">@entry.Score</td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,17 @@
+.trophy {
+    text-align: center;
+    &_item {
+        padding: 10px;
+        &_name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-decoration: underline;
+        }
+        &_value {
+            font-size: xx-large;
+        }
+        &_playerName {
+            font-style: italic;
+        }
+    }
+}

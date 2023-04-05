@@ -1,0 +1,30 @@
+.scoreBoard {
+    &_title {
+        text-align: center;
+    }
+    &_header {
+        text-align: center;
+    }
+    &_list {
+        text-align: center;
+        width:100%;
+        border: 1px solid black;
+        max-width: 750px;
+        list-style: none;
+        padding-inline-start: 0px;
+        margin: 0px auto;
+        &_header>th {
+            text-align: center;
+            padding: 1em 0;
+        }
+        &_item {
+            background-color: #ddd;
+            &.even {
+                background-color: #eee;
+            }
+            >td {
+                padding: 0.5em 0;
+            }
+        }
+    }
+}

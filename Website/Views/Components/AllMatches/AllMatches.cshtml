@@ -1,0 +1,84 @@
+﻿@using TableFootball.Website.Models.Components.AllMatches
+
+@model AllMatchesModel
+
+@{
+    var isEvenEntry = true;
+}
+<!--TODO: refactor and remove JS from the view-->
+<script type="text/javascript">
+    function changeNumberOfResults(dropdown) {
+        if (dropdown.value == 'All') {
+            window.location.href = window.location.href.split('?')[0];
+        }
+        else {
+            window.location.href = window.location.href.split('?')[0] + '?numberOfResultsToDisplay=' + dropdown.value;
+        }
+    }
+    function setPaginationLinks() {
+        var pageLinks = $('.allMatches_pagination_item > a');
+        for (var i = 0; i < pageLinks.length; i++) {
+            var numberOfResultsToDisplay = window.location.href.indexOf('numberOfResultsToDisplay=') > 0 ? window.location.href.split('numberOfResultsToDisplay=')[1].split('&')[0] : '0';
+            pageLinks[i].href = window.location.href.split('?')[0] + '?numberOfResultsToDisplay=' + numberOfResultsToDisplay + '&page=' + pageLinks[i].attributes['data-page'].value;
+            if (window.location.href.indexOf('page=') > 0) {
+                var page = window.location.href.split('page=')[1].split('&')[0];
+                if (page == pageLinks[i].attributes['data-page'].value) {
+                    pageLinks[i].className = 'allMatches_pagination_item_link-current'
+                }
+            }
+            else if (window.location.href.indexOf('numberOfResultsToDisplay=') > 0 && i == 0) {
+                pageLinks[i].className = 'allMatches_pagination_item_link-current';
+            }
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        setPaginationLinks();
+    }, false);
+</script>
+
+<div class="allMatches">
+    <h1 class="allMatches_title">@Model.Title</h1>
+    <div class="allMatches_filterBar">
+        <select onchange="changeNumberOfResults(this)" class="allMatches_filterBar_numberOfResults" disabled="@(Model.TotalNumberOfMatches < 10)">
+            <option>All</option>
+            <option selected="@(Model.NumberOfResults > 0 && Model.NumberOfResults == 10)">10</option>
+            <option selected="@(Model.NumberOfResults > 0 && Model.NumberOfResults == 30)">30</option>
+            <option selected="@(Model.NumberOfResults > 0 && Model.NumberOfResults == 100)">100</option>
+        </select>
+    </div>
+    <table class="allMatches_list">
+        <tr class="allMatches_list_header">
+            <th class="col-sm-2">@Model.Team1Score</th>
+            <th class="col-sm-2">@Model.Team1Players</th>
+            <th class="col-sm-1"></th>
+            <th class="col-sm-2">@Model.PlayedAtLabel</th>
+            <th class="col-sm-1"></th>
+            <th class="col-sm-2">@Model.Team2Players</th>
+            <th class="col-sm-2">@Model.Team2Score</th>
+        </tr>
+        @foreach (var entry in Model.Entries)
+        {
+            isEvenEntry = !isEvenEntry;
+            <tr class="allMatches_list_item @(isEvenEntry ? "even" : "")">
+                <td class="col-sm-2">@entry.Team1Score</td>
+                <td class="col-sm-2">@entry.Team1Players</td>
+                <td class="col-sm-1"></td>
+                <td class="col-sm-2">@entry.PlayedAt.ToString("dd/MM/yy")</td>
+                <td class="col-sm-1"></td>
+                <td class="col-sm-2">@entry.Team2Players</td>
+                <td class="col-sm-2">@entry.Team2Score</td>
+            </tr>
+        }
+    </table>
+    @if (Model.NumberOfResults > 0 && Model.NumberOfResults < Model.TotalNumberOfMatches)
+    {
+        <ul class="allMatches_pagination">
+            @for (int p = 1; p <= Math.Ceiling((double)Model.TotalNumberOfMatches / Model.NumberOfResults); p++)
+            {
+                <li class="allMatches_pagination_item">
+                    <a class="allMatches_pagination_item_link" data-page="@p">@(p)</a>
+                </li>
+            }
+        </ul>
+    }
+</div>

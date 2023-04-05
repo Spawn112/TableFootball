@@ -1,0 +1,50 @@
+.allMatches {
+    &_title {
+        text-align: center;
+    }
+    &_filterBar {
+        max-width: 750px;
+        margin: 10px auto;
+        display: flex;
+        justify-content: end;
+        &_numberOfResults {
+            padding: 2px;
+        }
+    }
+    &_list {
+        text-align: center;
+        border: 1px solid black;
+        max-width: 750px;
+        list-style: none;
+        padding-inline-start: 0px;
+        margin: 0px auto;
+        &_header>th {
+            text-align: center;
+            padding: 1em 0;
+        }
+        &_item {
+            background-color: #ddd;
+            &.even {
+                background-color: #eee;
+            }
+            >td {
+                padding: 0.5em 0;
+            }
+        }
+    }
+    &_pagination {
+        list-style: none;
+        text-align: center;
+        margin: 10px;
+        &_item {
+            display: inline-block;
+            &_link {
+                cursor: pointer;
+                &-current {
+                    font-weight: bold;
+                    text-decoration:underline;
+                }
+            }
+        }
+    }
+}

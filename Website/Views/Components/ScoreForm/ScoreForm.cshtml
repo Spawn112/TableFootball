@@ -1,0 +1,32 @@
+﻿@using TableFootball.Website.Models.Components.ScoreForm
+
+@model ScoreFormModel
+
+<div class="scoreForm">
+    <h1 class="scoreForm_title">@Model.Title</h1>
+    @using (Html.BeginForm("RegisterScore", "ScoreForm", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="scoreForm_team col-sm-4">
+            @Html.DropDownListFor(Model => Model.Team1Player1, Model.Players.Select(item => new SelectListItem() { Text = item.Name, Value = item.ID.ToString() }), "Select Player", new { @class = "scoreForm_team_player" })
+            @Html.DropDownListFor(Model => Model.Team1Player2, Model.Players.Select(item => new SelectListItem() { Text = item.Name, Value = item.ID.ToString() }), "Select Player", new { @class = "scoreForm_team_player" })
+            @Html.DropDownListFor(Model => Model.Team1Score, Enumerable.Range(0, 19).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "scoreForm_team_score" })
+        </div>
+        <div class="scoreForm_team col-sm-offset-4 col-sm-4">
+            @Html.DropDownListFor(Model => Model.Team2Player1, Model.Players.Select(item => new SelectListItem() { Text = item.Name, Value = item.ID.ToString() }), "Select Player", new { @class = "scoreForm_team_player" })
+            @Html.DropDownListFor(Model => Model.Team2Player2, Model.Players.Select(item => new SelectListItem() { Text = item.Name, Value = item.ID.ToString() }), "Select Player", new { @class = "scoreForm_team_player" })
+            @Html.DropDownListFor(Model => Model.Team2Score, Enumerable.Range(0, 19).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }), new { @class = "scoreForm_team_score" })
+        </div>
+        <button class="scoreForm_btn">@Model.SubmitButton</button>
+        if (!string.IsNullOrEmpty(Model.WarningMsg))
+        {
+            <div class="scoreForm_warningmsg">@Model.WarningMsg</div>
+            @Html.HiddenFor(Model => Model.WarningMsg)
+        }
+        if (!string.IsNullOrEmpty(Model.ErrorMsg))
+        {
+            <div class="scoreForm_errormsg">@Model.ErrorMsg</div>
+            @Html.HiddenFor(Model => Model.ErrorMsg)
+        }
+    }
+</div>

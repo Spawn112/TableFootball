@@ -1,0 +1,193 @@
+footer {
+  /*position: fixed; removed for now
+    bottom: 0;*/
+}
+
+.createPlayer_name {
+  margin-top: 20px;
+}
+
+.createPlayer_name_input {
+  padding: 10px;
+}
+
+.createPlayer_btn {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+}
+
+.createPlayer_errormsg {
+  color: red;
+}
+
+.allMatches_title {
+  text-align: center;
+}
+
+.allMatches_filterBar {
+  max-width: 750px;
+  margin: 10px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.allMatches_filterBar_numberOfResults {
+  padding: 2px;
+}
+
+.allMatches_list {
+  text-align: center;
+  border: 1px solid black;
+  max-width: 750px;
+  list-style: none;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+  margin: 0px auto;
+}
+
+.allMatches_list_header > th {
+  text-align: center;
+  padding: 1em 0;
+}
+
+.allMatches_list_item {
+  background-color: #ddd;
+}
+
+.allMatches_list_item.even {
+  background-color: #eee;
+}
+
+.allMatches_list_item > td {
+  padding: 0.5em 0;
+}
+
+.allMatches_pagination {
+  list-style: none;
+  text-align: center;
+  margin: 10px;
+}
+
+.allMatches_pagination_item {
+  display: inline-block;
+}
+
+.allMatches_pagination_item_link {
+  cursor: pointer;
+}
+
+.allMatches_pagination_item_link-current {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.scoreBoard_title {
+  text-align: center;
+}
+
+.scoreBoard_header {
+  text-align: center;
+}
+
+.scoreBoard_list {
+  text-align: center;
+  width: 100%;
+  border: 1px solid black;
+  max-width: 750px;
+  list-style: none;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+  margin: 0px auto;
+}
+
+.scoreBoard_list_header > th {
+  text-align: center;
+  padding: 1em 0;
+}
+
+.scoreBoard_list_item {
+  background-color: #ddd;
+}
+
+.scoreBoard_list_item.even {
+  background-color: #eee;
+}
+
+.scoreBoard_list_item > td {
+  padding: 0.5em 0;
+}
+
+.scoreForm_title {
+  text-align: center;
+}
+
+.scoreForm_team {
+  display: -ms-grid;
+  display: grid;
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.scoreForm_team_score {
+  text-align: center;
+  margin: 10px;
+  padding: 5px 10px;
+}
+
+.scoreForm_team_player {
+  margin: 10px;
+  padding: 5px 10px;
+}
+
+.scoreForm_btn {
+  margin-top: 20px;
+  padding: 5px 10px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.scoreForm_errormsg {
+  color: red;
+}
+
+.scoreForm_warningmsg {
+  color: orange;
+}
+
+.scoreForm_warningmsg, .scoreForm_errormsg {
+  text-align: center;
+  margin: 10px;
+}
+
+.trophy {
+  text-align: center;
+}
+
+.trophy_item {
+  padding: 10px;
+}
+
+.trophy_item_name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.trophy_item_value {
+  font-size: xx-large;
+}
+
+.trophy_item_playerName {
+  font-style: italic;
+}
+/*# sourceMappingURL=style.css.map */

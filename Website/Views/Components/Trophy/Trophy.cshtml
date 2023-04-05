@@ -1,0 +1,17 @@
+﻿@using TableFootball.Website.Models.Components.Trophy
+
+@model IEnumerable<TrophyModel>
+
+<div class="trophy">
+    @foreach (var trophy in Model)
+    {
+        <div class="trophy_item col-sm-3">
+            <div class="trophy_item_name">@trophy.Name</div>
+            <div class="trophy_item_value">@trophy.Value</div>
+            @foreach (var player in trophy.Players)
+            {
+                <div class="trophy_item_playerName">@player.Name</div>
+            }
+        </div>
+    }
+</div>

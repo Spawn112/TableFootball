@@ -1,0 +1,16 @@
+﻿@using TableFootball.Website.Models.Components.CreatePlayer
+
+@model CreatePlayerModel
+
+<div class="createPlayer">
+    <h1 class="createPlayer_title">@Model.Title</h1>
+    @using (Html.BeginForm("CreatePlayer", "createPlayer", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="createPlayer_name">
+            @Html.TextBoxFor(Model => Model.Name, new { placeholder = Model.NameLabel, @class = "createPlayer_name_input" })
+        </div>
+        <button class="createPlayer_btn">@Model.SubmitButton</button>
+        <span class="createPlayer_errormsg">@Model.ErrorMsg</span>
+    }
+</div>

@@ -1,0 +1,11 @@
+{
+    "fsdeploy.nodes": [
+        {
+            "source":"../Design",
+            "target":"../Website/Content",
+            "include":"style.css*"
+        }
+    ],
+    "fsdeploy.deployOnSave": true,
+    "fsdeploy.deployWorkspaceOnSave": true
+}

@@ -1,0 +1,23 @@
+﻿@using TableFootball.Website.Models.Components.TopNavigation
+
+@model TopNavigationModel
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Leaderboard", "Index", "Home")</li>
+                <li>@Html.ActionLink("Register match", "Index", "RegisterMatch")</li>
+                <li>@Html.ActionLink("Register player", "Index", "RegisterPlayer")</li>
+                <li>@Html.ActionLink("Game History", "Index", "GameHistory", new { numberOfResultsToDisplay=10 }, new { })</li>
+            </ul>
+        </div>
+    </div>
+</div>
